@@ -16,7 +16,7 @@ describe("POST /api/auth/register", () => {
     const res = await request(app).post("/api/auth/register").send({
       username: "testuser",
       email: "test@example.com",
-      password: "password123",
+      password: "Password123!",
     });
     expect(res.status).toBe(201);
     expect(typeof res.body.token).toBe("string");
@@ -39,12 +39,12 @@ describe("POST /api/auth/login", () => {
     await request(app).post("/api/auth/register").send({
       username: "loginuser",
       email: "login@example.com",
-      password: "password123",
+      password: "Password123!",
     });
 
     const res = await request(app).post("/api/auth/login").send({
       username: "loginuser",
-      password: "password123",
+      password: "Password123!",
     });
     expect(res.status).toBe(200);
     expect(typeof res.body.token).toBe("string");
@@ -53,7 +53,7 @@ describe("POST /api/auth/login", () => {
   it("returns 401 on wrong password", async () => {
     const res = await request(app).post("/api/auth/login").send({
       username: "loginuser",
-      password: "wrongpassword",
+      password: "WrongPass1!",
     });
     expect(res.status).toBe(401);
   });
@@ -64,7 +64,7 @@ describe("GET /api/auth/me", () => {
     const regRes = await request(app).post("/api/auth/register").send({
       username: "meuser",
       email: "me@example.com",
-      password: "password123",
+      password: "Password123!",
     });
     const token = regRes.body.token;
 
