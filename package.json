@@ -1,0 +1,21 @@
+{
+  "name": "mc-todo-crud-ivd6q8",
+  "version": "1.0.0",
+  "description": "Demo project for MultiClaude multi-agent orchestration showcase",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2"
+  }
+}
