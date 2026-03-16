@@ -23,7 +23,7 @@ router.get("/", (_req: Request, res: Response): void => {
 
 // GET /api/todos/:id
 router.get("/:id", (req: Request, res: Response): void => {
-  const todo = todos.find((t) => t.id === parseInt(req.params.id));
+  const todo = todos.find((t) => t.id === parseInt(req.params.id as string));
   if (!todo) {
     res.status(404).json({ error: "Not found" });
     return;
@@ -45,7 +45,7 @@ router.post("/", (req: Request, res: Response): void => {
 
 // PUT /api/todos/:id
 router.put("/:id", (req: Request, res: Response): void => {
-  const todo = todos.find((t) => t.id === parseInt(req.params.id));
+  const todo = todos.find((t) => t.id === parseInt(req.params.id as string));
   if (!todo) {
     res.status(404).json({ error: "Not found" });
     return;
@@ -70,7 +70,7 @@ router.put("/:id", (req: Request, res: Response): void => {
 
 // DELETE /api/todos/:id
 router.delete("/:id", (req: Request, res: Response): void => {
-  const idx = todos.findIndex((t) => t.id === parseInt(req.params.id));
+  const idx = todos.findIndex((t) => t.id === parseInt(req.params.id as string));
   if (idx === -1) {
     res.status(404).json({ error: "Not found" });
     return;
